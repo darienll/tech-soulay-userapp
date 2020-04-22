@@ -1,10 +1,4 @@
-.header-blue  {
-  background: linear-gradient(135deg, #172a74, #21a9af);
-  background-color: #184e8e;
-  /* padding-bottom: 80px; */
-  height: 100%;
-  font-family: 'Source Sans Pro', sans-serif;
-}
+
 .header-blue .navbar {
   background: transparent;
   padding-top: .75rem;
