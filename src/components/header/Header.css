@@ -1,5 +1,5 @@
 .hero {
-    height: calc(100vh - 10vh);
+    height: calc(100vh - 5vh);
     position: relative;
     width: 100%;
     padding-top: 10%;
@@ -7,9 +7,9 @@
     /* padding-top: 200px; */
 }
 
-.hero {
-  /* margin-top: 20px; */
-  /* text-align: center; */
+.form-input-error {
+  color:red;
+  font-size:1rem;
 }
 
 @media (min-width:768px) {
@@ -90,9 +90,13 @@ ul li {
   color: #fff;
   font-size: 16px;
 }
-.main-samples p {
+.main-samples  {
+  margin-top: 40px;
+  
   opacity: 0.5;
-  text-align: center;
+  color:#fff;
+  font-size: 17px;
+  /* text-align: center; */
 }
 .hero-header  {
   margin: 0;
@@ -101,4 +105,16 @@ ul li {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);  
+}
+.hero a {
+  text-decoration: none;
+  color:#fff;
+}
+
+.search {
+  /* width: 80%; */
+}
+.hero-header {
+  width: 80%;
+  margin: auto;
 }
