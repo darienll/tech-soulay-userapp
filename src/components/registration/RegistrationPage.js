@@ -1,9 +1,9 @@
 import React from 'react';
-import './LoginPage.css'
+import './RegistrationPage.css'
 import { connect } from 'react-redux';
 import { userActions } from '../../redux/actions';
 
-class LoginPage extends React.Component {
+class RegistrationPage extends React.Component {
     constructor(props) {
         super(props);
         // this.props.dispatch(userActions.logout());
@@ -27,7 +27,6 @@ class LoginPage extends React.Component {
 
         this.setState({ submitted: true });
         const { email, password } = this.state;
-        console.log(this.props)
         const { dispatch } = this.props;
         if (email && password) {
             dispatch(userActions.login(email, password));
@@ -45,7 +44,7 @@ class LoginPage extends React.Component {
                         Email: test<br />
                         Password: test
                     </div>
-                    <h2>Login</h2>
+                    <h2>Registration</h2>
                     <form name="form" onSubmit={this.handleSubmit}>
                         <div className={'form-group' + (submitted && !email ? ' has-error' : '')}>
                             <label htmlFor="email">Email</label>
@@ -63,9 +62,9 @@ class LoginPage extends React.Component {
                         </div>
                         <div className="form-group">
                             <button className="btn btn-primary">Login</button>
-                            {/* {loggingIn &&
+                            {loggingIn &&
                                 <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-                            } */}
+                            }
                         </div>
                     </form>
                 </div>
@@ -82,4 +81,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(LoginPage);
+export default connect(mapStateToProps)(RegistrationPage);

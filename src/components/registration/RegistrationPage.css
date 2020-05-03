@@ -1,7 +1,4 @@
 .login {
-    background-color: white;
     /* margin-top: 100px; */
-    padding-top: 100px;
     height: calc(100vh - 20vh);
-    width: 100%;
 }
