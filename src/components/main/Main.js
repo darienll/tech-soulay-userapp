@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../navbar/Navbar'
-import Header from '../header/Header'
+import HeaderPage from '../header/HeaderPage'
 import LoginPage from '../login/LoginPage';
 
 import './Main.css'
@@ -13,9 +13,16 @@ import {
 import Products from '../products/Products';
 import { PrivateRoute } from '../secure/Privateroute';
 import { history } from '../../helpers/history';
+import RegistrationPage from '../registration/RegistrationPage';
+import NotFound from '../notfound/NotFound';
+import { Layout } from 'antd';
+
+const { Header, Footer, Sider, Content } = Layout;
+
 class Main extends React.Component {
     constructor(props) {
         super(props);
+        console.log("in main")
 
         // const { dispatch } = this.props;
         // history.listen((location, action) => {
@@ -26,20 +33,20 @@ class Main extends React.Component {
     render() {
         return (
             <div className="main"> 
-            <Router history={ history }>
-                    <Navbar/>
-                <div className="container">
+                    <Router history={ history }>
+                        <Navbar/>
+                        <div>
+                            <Switch>
+                                <PrivateRoute exact path='/' component={ HeaderPage }/>
+                                <Route path="/login" component={ LoginPage } />
+                                <Route path="/signup" component={ RegistrationPage } />
+                                <PrivateRoute path="/products/:query" component={ Products }>
+                                </PrivateRoute>
+                                <Route component = { NotFound } />
 
-                    <Switch>
-                        <PrivateRoute exact path='/' component={ Header }>
-                        </PrivateRoute>
-                        <Route path="/login" component={ LoginPage } />
-                        <PrivateRoute path="/products/:query">
-                            <Products/>
-                        </PrivateRoute>
-                    </Switch>
-                </div>
-            </Router>
+                            </Switch>
+                        </div>
+                    </Router>
             </div>
         )
     }

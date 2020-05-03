@@ -1,32 +1,90 @@
-import React from 'react';
+import React, { useState, useEffect, Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 import './Navbar.css'
-const Navbar = () => {
-    return (
-        <div className="header-blue">
-            <nav className="navbar navbar-light navbar-expand-md navigation-clean-search">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="#">Tech soulay</a>
-                    <button data-toggle="collapse" className="navbar-toggler" data-target="#navcol-1">
-                        <span className="sr-only">Toggle navigation</span>
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse"
-                        id="navcol-1">
-                        <ul className="nav navbar-nav">
-                            <li className="nav-item" role="presentation"><a className="nav-link" href="#">Link</a></li>
-                            <li className="nav-item dropdown"><a className="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
-                                <div className="dropdown-menu" role="menu"><a className="dropdown-item" role="presentation" href="#">First Item</a><a className="dropdown-item" role="presentation" href="#">Second Item</a><a className="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                            </li>
-                        </ul>
-                        <form className="form-inline mr-auto" target="_self">
-                            <div className="form-group"><label htmlFor="search-field"><i className="fa fa-search"></i></label><input className="form-control search-field" type="search" id="search-field" name="search"/></div>
-                        </form>
-                        <span className="navbar-text"> <a className="login" href="#">Log In</a></span>
-                        <a className="btn btn-light action-button" role="button" href="#">Sign Up</a>
-                         </div>
-                </div>
-            </nav>
-        </div>
-    )
+import ProfilePage from '../profile/ProfilePage';
+import { connect } from 'react-redux';
+const { forwardRef, useRef, useImperativeHandle } = React;
+
+class Navbar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loggedIn: this.props.loggedIn
+        }
+        this.childRef = null;
+        console.log(this.props)
+    }
+
+    logOut = ()=> {
+        this.setState({
+            loggedIn : false
+        })
+    }
+
+    handleClick = () => {
+        this.childRef.getWrappedInstance().showDrawer();
+    }
+    render(){
+        const { loggingIn } = this.props;
+        console.log(loggingIn)
+        return (
+            <div className="header-blue">
+                <nav className="navbar navbar-light navbar-expand-md navigation-clean-search">
+                    <div className="container-fluid">
+                        <Link to={ '/' } className="navbar-brand">Tech soulay</Link>
+                        <button data-toggle="collapse" className="navbar-toggler" data-target="#navcol-1">
+                            <span className="sr-only">Toggle navigation</span>
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse"
+                            id="navcol-1">
+                            <ul className="nav navbar-nav">
+                                <li className="nav-item" role="presentation"><a className="nav-link" href="#">FAQ</a></li>
+                                <li className="nav-item dropdown"><a className="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
+                                    <div className="dropdown-menu" role="menu"><a className="dropdown-item" role="presentation" href="#">First Item</a><a className="dropdown-item" role="presentation" href="#">Second Item</a><a className="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                                </li>
+                            </ul>
+                            <form className="form-inline mr-auto" target="_self">
+                                <div className="form-group"><label htmlFor="search-field"><i className="fa fa-search"></i></label><input className="form-control search-field" type="search" id="search-field" name="search"/></div>
+                            </form>
+                            <div>
+                                {
+                                    loggingIn   ?
+                                    (
+                                        <div>
+                                            <ProfilePage  logOut = { this.logOut } ref={ ref => this.childRef = ref }/>
+                                            <div className="profile-avatar">
+                                                <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }} onClick={ this.handleClick }>
+                                                    {/* <a onClick={ this.handleClick }>U</a> */}
+                                                    U
+                                                </Avatar>
+                                            </div>
+                                        </div>
+                                    )
+                                    :
+                                    (
+                                        <div>
+                                            <span className="navbar-text"><Link to={ '/login' } className="login-tab" >Log In</Link></span>
+                                            <Link to={ '/signup' } className="login" className="btn btn-light action-button" role="button">Sign Up</Link>
+                                        </div>
+                                    )
+                                }
+                            </div>
+                            </div>
+                    </div>
+                </nav>
+            </div>
+        )
+    }
 }
-export default Navbar;
+const mapStateToProps = state => {
+    const { loggedIn } = state.authentication;
+    return {
+        loggedIn
+    };
+
+}
+
+export default connect(mapStateToProps) (Navbar);

@@ -2,9 +2,11 @@
     height: calc(100vh - 5vh);
     position: relative;
     width: 100%;
-    padding-top: 10%;
-    /* background-color: red; */
-    /* padding-top: 200px; */
+
+}
+.header {
+  padding-top: 10%;
+
 }
 
 .form-input-error {
@@ -117,4 +119,8 @@ ul li {
 .hero-header {
   width: 80%;
   margin: auto;
+}
+
+.go {
+  height: 100%;
 }

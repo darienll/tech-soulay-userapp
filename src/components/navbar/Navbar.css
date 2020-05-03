@@ -32,13 +32,13 @@
   }
 }
 
-.header-blue .navbar .navbar-collapse span .login {
+.header-blue .navbar .navbar-collapse span .login-tab {
   color: #d9d9d9;
   margin-right: .5rem;
   text-decoration: none;
 }
 
-.header-blue .navbar .navbar-collapse span .login:hover {
+.header-blue .navbar .navbar-collapse span .login-tab:hover {
   color: #fff;
 }
 
@@ -126,6 +126,9 @@
   border-bottom: 1px solid #ccc;
 }
 
+.profile-avatar{
+  cursor: pointer;
+}
 
 
 
