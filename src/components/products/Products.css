@@ -1,0 +1,36 @@
+img {
+    width: 100%;
+}
+.iphone-mockup {
+    margin: 100px 0px;
+}
+.desc h1{
+    font-size: 53px
+}
+.desc_text {
+    /* color: rgb(255,255,255); */
+}
+.products {
+    height: 100%;
+    background-color: #fff;
+    padding-top: 30px;
+}
+.products h1{
+    font-size: 35px;
+}
+.loading {
+    height: 100vh;
+}
+.tab {
+    /* height: 100vh; */
+    min-height: 100vh;
+}
+.products-details {
+    /* min-height: 100vh; */
+    color:white;
+    height: 100%;
+}
+
+p {
+    /* color:white; */
+}
