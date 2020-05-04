@@ -42,16 +42,16 @@ class Navbar extends Component {
                             id="navcol-1">
                             <ul className="nav navbar-nav">
                                 <li className="nav-item" role="presentation"><a className="nav-link" href="#">FAQ</a></li>
-                                <li className="nav-item dropdown"><a className="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
+                                {/* <li className="nav-item dropdown"><a className="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
                                     <div className="dropdown-menu" role="menu"><a className="dropdown-item" role="presentation" href="#">First Item</a><a className="dropdown-item" role="presentation" href="#">Second Item</a><a className="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                                </li>
+                                </li> */}
                             </ul>
                             <form className="form-inline mr-auto" target="_self">
                                 <div className="form-group"><label htmlFor="search-field"><i className="fa fa-search"></i></label><input className="form-control search-field" type="search" id="search-field" name="search"/></div>
                             </form>
                             <div>
                                 {
-                                    loggingIn   ?
+                                    this.state.loggedIn   ?
                                     (
                                         <div>
                                             <ProfilePage  logOut = { this.logOut } ref={ ref => this.childRef = ref }/>

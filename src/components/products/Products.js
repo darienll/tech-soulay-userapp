@@ -12,15 +12,34 @@ const { TabPane } = Tabs;
 const { Option } = Select;
 function Products(props) {
     const [loading, setLoading] = useState(true);
+    const [product, setProduct] = useState()
     const tabPosition = 'right';
     let { query } = useParams();
 
     useEffect(()=>{
-        // Fetch all data from backend
-        // set loading false 
+        // send request to back
+        console.log(query)
+        const host = "http://localhost:8002/search/?q=" + query;
+        fetch(host)
+        .then(res => res.json())
+        .then(
+            (result) => {
+            // setIsLoaded(true);
+            // setItems(result.items);
+            console.log(result)
+            setProduct(result);
+            },
+            // Примечание: Обрабатывать ошибки необходимо именно здесь
+            // вместо блока catch(), чтобы не пропустить
+            // исключения из реальных ошибок в компонентах.
+            (error) => {
+            // setIsLoaded(true);
+            // setError(error);
+            }
+        )
         setTimeout(function() {
             setLoading(false);
-        },2500)
+        },1)
 
     },[])
   return (
@@ -36,17 +55,13 @@ function Products(props) {
                 <Tabs tabPosition={ tabPosition }>
                     <TabPane tab="Info" key="1">
                         <div className="tab container">
-                            <ProductDetails/>
+                            { product ? <ProductDetails productData = { product }/> : null}
                         </div>
                     </TabPane>
                     <TabPane tab="Graphics" key="2">
                         <div className="tab container">
-                            <div>
-                                <div className="container">
-                                <RadarExample/>
-                                TESTSETESTSTESETSETSETS
-                                </div>
-                            </div>
+                            {  product ? <RadarExample productData = { product }/> : null }
+                           
                         </div>
                     </TabPane>
                     <TabPane tab="Reviews" key="3">

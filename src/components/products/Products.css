@@ -11,7 +11,7 @@ img {
     /* color: rgb(255,255,255); */
 }
 .products {
-    height: 100%;
+    /* height: 100%; */
     background-color: #fff;
     padding-top: 30px;
 }
@@ -23,12 +23,12 @@ img {
 }
 .tab {
     /* height: 100vh; */
-    min-height: 100vh;
+    /* min-height: calc(100vh - 8vh); */
 }
 .products-details {
     /* min-height: 100vh; */
     color:white;
-    height: 100%;
+    /* height: 100%; */
 }
 
 p {
