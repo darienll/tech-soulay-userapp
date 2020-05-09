@@ -33,7 +33,7 @@ class Navbar extends Component {
             <div className="header-blue">
                 <nav className="navbar navbar-light navbar-expand-md navigation-clean-search">
                     <div className="container-fluid">
-                        <Link to={ '/' } className="navbar-brand">Tech soulay</Link>
+                        <Link to={ '/' } className="navbar-brand">Tech Soulai</Link>
                         <button data-toggle="collapse" className="navbar-toggler" data-target="#navcol-1">
                             <span className="sr-only">Toggle navigation</span>
                             <span className="navbar-toggler-icon"></span>
