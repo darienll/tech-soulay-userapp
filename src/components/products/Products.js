@@ -39,7 +39,7 @@ function Products(props) {
         )
         setTimeout(function() {
             setLoading(false);
-        },1)
+        },2000)
 
     },[])
   return (
