@@ -16,7 +16,7 @@ export default class ProductDetails extends Component {
                 cpu: this.specChar(data?.cpu_rate, 1),
                 gpu : this.specChar(data?.gpu_rate, 0),
                 ssd : data?.ssd,
-                ram: this.specChar(data?.ram, 1)
+                ram: this.specRam(data?.ram, 1)
             }
         }
         
@@ -32,10 +32,18 @@ export default class ProductDetails extends Component {
     }
    
     specChar(rate, r) {
-        if (rate > 75) return r ? "один из лучших" : "одна из лучших";
-        if (rate > 60) return r? "отличный" : "отличная";
+        if (rate > 75) return r ? "один из лучших" : "все игры можно запускать на максималках";
+        if (rate > 60) return r? "очень быстрый" : "подойдет для большинства игр";
         if (rate > 50) return r? "неплохой" : "неплохая";
         return "соответствует вашим нуждам";
+    }
+
+    specRam(rate, r) {
+        console.log(rate)
+        if (rate >= 16) return "хватит на все игры и программы";
+        if (rate >= 8) return "хватит на все программы и большинство игр";
+        if (rate >= 4) return "достаточная для комфортной работы и оптимизированных игр";
+        return "достаточная для работы в офисе";
     }
     render() {
         let data = this.props.productData
