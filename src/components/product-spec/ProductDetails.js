@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import phone from '../../assets/iphone.svg'
 import notebook from '../../assets/notebook2.jpg'
+import computer from '../../assets/computer.jpg'
 
 import './ProductDetails.css';
 export default class ProductDetails extends Component {
@@ -51,7 +52,7 @@ export default class ProductDetails extends Component {
                 <div className="row d-flex flex-row  align-items-center align-content-center">
                     <div className="col-md-7 ol-lg-5 col-xl-4 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder ">
                         <div className="iphone-mockup">
-                        <img className="device" src={ notebook } height="300px" width="300px"/>
+                        <img className="device" src={data?.category_name === "notebooks"? notebook : computer } height="300px" width="300px"/>
                             <div className="screen"></div>
                         </div>
                     </div>
@@ -62,26 +63,26 @@ export default class ProductDetails extends Component {
                         
                             <div>
                                 {/* <h2>Крутой процессор</h2> */}
-                                <h3> процессор - { this.state.desc.cpu }  </h3>
+                                <h3> Процессор - { this.state.desc.cpu }  </h3>
                                 <p>
                                     { data?.cpu }
                                 </p>
                                 {/* <p>l<strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the&nbsp;</p> */}
                             </div>
                             <div>
-                            <h3>видеокарта -  { this.state.desc.gpu }  </h3>
+                            <h3>Видеокарта -  { this.state.desc.gpu }  </h3>
                                 <p>
                                     { data?.gpu }
                                 </p>
                             </div>
                             <div>
-                                <h3>имеется SSD</h3>
+                                <h3>Имеется SSD</h3>
                                 <p>
                                     SSD почти в 100 раз быстрее, чем традиционный жесткий диск
                                 </p>
                             </div>
                             <div>
-                                <h3> оперативная памиять - { this.state.desc.ram } </h3>
+                                <h3> Оперативная память - { this.state.desc.ram } </h3>
                                 <p>
                                     { data?.ram } гб
                                 </p>
