@@ -19,16 +19,6 @@ export default class ProductDetails extends Component {
                 ram: this.specRam(data?.ram, 1)
             }
         }
-        
-        // let data = this.props.productData;
-        // console.log(data)
-        // this.state = {
-        //     desc: {
-        //         cpu: this.specChar(data?.cpu_rate, 1),
-        //         gpu : this.specChar(data?.gpu_rate, 0),
-        //         ssd : data?.ssd
-        //     }
-        // }
     }
    
     specChar(rate, r) {
@@ -75,7 +65,6 @@ export default class ProductDetails extends Component {
                                 <p>
                                     { data?.cpu }
                                 </p>
-                                {/* <p>l<strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the&nbsp;</p> */}
                             </div>
                             <div>
                             <h3>Видеокарта -  { this.state.desc.gpu }  </h3>

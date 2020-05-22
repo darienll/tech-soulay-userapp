@@ -43,7 +43,6 @@ class Main extends React.Component {
                                 <PrivateRoute path="/products/:query" component={ Products }>
                                 </PrivateRoute>
                                 <Route component = { NotFound } />
-
                             </Switch>
                         </div>
                     </Router>

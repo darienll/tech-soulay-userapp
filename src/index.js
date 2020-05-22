@@ -6,8 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { store } from './helpers/store';
 
-import { configureFakeBackend } from './helpers';
-configureFakeBackend();
+
 
 ReactDOM.render(
   // <React.StrictMode>

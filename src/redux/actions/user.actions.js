@@ -2,9 +2,11 @@ import { userConstants } from '../../constants';
 import { userService } from '../../services';
 import { alertActions } from './';
 import { history } from '../../helpers';
+import { message, Button, Space } from 'antd';
 
 export const userActions = {
     login,
+    register,
     logout,
     getAll
 };
@@ -35,6 +37,29 @@ function logout() {
     userService.logout();
     history.push('/login')
     return { type: userConstants.LOGOUT };
+}
+
+function register(username, password) {
+    return dispatch => {
+        dispatch(request({ username }));
+
+        userService.register(username, password)
+            .then(
+                user => { 
+                    dispatch(success(user));
+                    message.success('You have sucessfully registered');
+                    history.push('/login');
+                },
+                error => {
+                    dispatch(failure(error));
+                    dispatch(alertActions.error(error));
+                }
+            );
+    };
+
+    function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
+    function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
+    function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
 }
 
 function getAll() {

@@ -66,7 +66,8 @@ function Products(props) {
                     </TabPane>
                     <TabPane tab="Reviews" key="3">
                         <div className="tab container">
-                            <Tabs type="card" size='small'>
+                            <Comments productData = { product } />
+                            {/* <Tabs type="card" size='small'>
                                 <TabPane tab="Positive " key="1">
                                     <Comments/>
                                 </TabPane>
@@ -76,7 +77,7 @@ function Products(props) {
                                 <TabPane tab="Card Tab 3" key="3">
                                     Content of card tab 3
                                 </TabPane>
-                            </Tabs>
+                            </Tabs> */}
                         </div>
                     </TabPane>
                 </Tabs>

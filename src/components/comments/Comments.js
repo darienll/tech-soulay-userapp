@@ -3,10 +3,49 @@ import { Comment, Tooltip, Avatar } from 'antd';
 import moment from 'moment';
 import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
 export default class Comments extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            data: this.props.productData.reviews
+        }
+        console.log(this.state.data);
+    }
+
     render(){
+        // <div>
+        //     {this.state.data.map((comment,i) => {
+        //             return (<Comment 
+        //                 author = { <a>Han Solo</a> }
+
+        //                 content = {
+        //                 <p>
+        //                     {comment.comment_plus}
+        //                 </p>
+        //             }
+        //             />)
+        //     })}
+        // </div>
         return(
             <div>
-                {[...Array(15).keys()].map(i => (
+                
+                {this.state.data.map((comment,i) => {
+                    return <Comment 
+                        author = { <a>Han Solo</a> }
+                        content = {
+                        <p>
+                            {comment.comment_plus}
+                        </p>
+                        }
+                        datetime = {
+                            <Tooltip title={moment().format('YYYY-MM-DD')}>
+                            <span>{ new Date(moment(comment.date)) }</span>
+                            </Tooltip>
+                        }
+                    />
+                    })}
+
+
+                {/* {[...Array(15).keys()].map(i => (
                              <Comment
                     
                              author={<a>Han Solo</a>}
@@ -29,7 +68,7 @@ export default class Comments extends Component {
                                  </Tooltip>
                              }
                          />
-                ))}
+                ))} */}
 
 
             </div>
