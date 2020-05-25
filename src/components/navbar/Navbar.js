@@ -5,6 +5,8 @@ import { UserOutlined } from '@ant-design/icons';
 import './Navbar.css'
 import ProfilePage from '../profile/ProfilePage';
 import { connect } from 'react-redux';
+import { userConstants } from '../../constants';
+
 const { forwardRef, useRef, useImperativeHandle } = React;
 
 class Navbar extends Component {
@@ -17,6 +19,20 @@ class Navbar extends Component {
         console.log(this.props)
     }
 
+    // componentWillMount(){
+    //     console.log(this.props.loggedIn)
+    //     console.log("there");
+    // }
+    componentDidUpdate(prevProps, prevState){
+        // this.setState({
+        //     loggedIn:this.props.loggedIn
+        // })
+        console.log(prevProps);
+        console.log(prevState)
+        
+        return true;
+    }
+
     logOut = ()=> {
         this.setState({
             loggedIn : false
@@ -27,8 +43,10 @@ class Navbar extends Component {
         this.childRef.getWrappedInstance().showDrawer();
     }
     render(){
-        const { loggingIn } = this.props;
-        console.log(loggingIn)
+        // const { loggedIn } = this.props;
+        // if (loggedIn) this.setState(prevState => ({ loggedIn: prevState.loggedIn = loggedIn }))
+
+        // console.log(loggedIn)
         return (
             <div className="header-blue">
                 <nav className="navbar navbar-light navbar-expand-md navigation-clean-search">
@@ -42,16 +60,13 @@ class Navbar extends Component {
                             id="navcol-1">
                             <ul className="nav navbar-nav">
                                 <li className="nav-item" role="presentation"><a className="nav-link" href="#">FAQ</a></li>
-                                {/* <li className="nav-item dropdown"><a className="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
-                                    <div className="dropdown-menu" role="menu"><a className="dropdown-item" role="presentation" href="#">First Item</a><a className="dropdown-item" role="presentation" href="#">Second Item</a><a className="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                                </li> */}
                             </ul>
                             <form className="form-inline mr-auto" target="_self">
                                 <div className="form-group"><label htmlFor="search-field"><i className="fa fa-search"></i></label><input className="form-control search-field" type="search" id="search-field" name="search"/></div>
                             </form>
                             <div>
                                 {
-                                    this.state.loggedIn   ?
+                                    this.state.loggedIn  ?
                                     (
                                         <div>
                                             <ProfilePage  logOut = { this.logOut } ref={ ref => this.childRef = ref }/>
@@ -80,9 +95,9 @@ class Navbar extends Component {
     }
 }
 const mapStateToProps = state => {
-    const { loggedIn } = state.authentication;
+    // const { loggedIn } = state.authentication;
     return {
-        loggedIn
+        loggedIn : state.authentication
     };
 
 }

@@ -275,6 +275,26 @@ footer a {
 
 
 
+@media only screen and (max-width : 700px) {
+	.overlay-container{
+		display:none;
+	}
+	.form-container{
+		width: 100%;
+	}
+	.social-container{
+		display: none;
+	}
+	.container.right-panel-active .sign-up-container {
+		transform: translateX(0%);
+		opacity: 1;
+		z-index: 5;
+		animation: show 0.8s;
+	}
+	.login input {
+		padding: 0px;
+	}
+}
 
 
 

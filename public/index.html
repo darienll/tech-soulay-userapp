@@ -50,19 +50,28 @@
     -->
   </body>
   <script>
-      const signUpButton = document.getElementById('signUp');
-      const signInButton = document.getElementById('signIn');
+      const signUpButton = document.querySelectorAll('.signUp');
+      const signInButton = document.querySelectorAll('.signIn');
       const container = document.getElementById('container');
-
-      signUpButton.addEventListener('click', () => {
-          console.log("there");
-        container.classList.add("right-panel-active");
+      signInButton.forEach(function(currButton) {
+          currButton.addEventListener('click', () => {
+          container.classList.remove("right-panel-active");
       });
-
-      signInButton.addEventListener('click', () => {
-          console.log("there");
-        container.classList.remove("right-panel-active");
+      })
+      signUpButton.forEach(function(currButton) {
+          currButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
       });
+    })
+      // signUpButton.addEventListener('click', () => {
+      //     console.log("there");
+      //   container.classList.add("right-panel-active");
+      // });
+
+      // signInButton.addEventListener('click', () => {
+      //     console.log("there");
+      //   container.classList.remove("right-panel-active");
+      // });
   </script>
 </html>
 <script type="text/babel" src="../src/components/login/main.js"></script>

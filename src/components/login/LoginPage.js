@@ -65,7 +65,7 @@ class LoginPage extends React.Component {
                                         <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                                         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                                     </div>
-                                    <span>or use your email for registration</span>
+                                    <span className="adapt-button"><a classs="ghost" class="signIn">or use your account</a></span>
                                     <input type="text" className="form-control" name="email2"  onChange={this.handleChange} placeholder="Email"/>
                                     {
                                             submitted2 && !email2 &&
@@ -90,23 +90,8 @@ class LoginPage extends React.Component {
                                         <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                                         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                                     </div>
-                                    <span>or use your account</span>
-                                    
-                                    {/* <div className={'form-group' + (submitted && !email ? ' has-error' : '')}>
-                                        <input type="text"  name="email"  onChange={this.handleChange} />
-                                        {submitted && !email &&
-                                            <div className="help-block">Email is required</div>
-                                        }
-                                    </div>
-                                    <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
-                                        <input type="password" name="password" placeholder="Email"  onChange={this.handleChange} />
-                                        {submitted && !password &&
-                                            <div className="help-block">Password is required</div>
-                                        }
-                                    </div> */}
-
-
-
+                                    <span className="adapt-button"><a classs="ghost" class="signUp">or create an account</a></span>
+                                    {/* <button classs="ghost" id="signUp">ada</button> */}
                                     <input type="text" className="form-control" name="email"  onChange={this.handleChange} placeholder="Email"/>
                                     {
                                             submitted && !email &&
@@ -126,12 +111,12 @@ class LoginPage extends React.Component {
                                     <div class="overlay-panel overlay-left">
                                         <h1>Welcome Back!</h1>
                                         <p>To keep connected with us please login with your personal info</p>
-                                        <button class="ghost" id="signIn">Sign In</button>
+                                        <button class="ghost" class="signIn">Sign In</button>
                                     </div>
                                     <div class="overlay-panel overlay-right">
                                         <h1>Hello, Friend!</h1>
                                         <p>Enter your personal details and start journey with us</p>
-                                        <button class="ghost" id="signUp">Sign Up</button>
+                                        <button class="ghost" class="signUp">Sign Up</button>
                                     </div>
                                 </div>
                             </div>
