@@ -28,7 +28,18 @@ module.exports = {
                     },
                 },
                 ],
-            }
+            },
+            {
+                test: /\.(png|jpg|gif)$/i,
+                use: [
+                  {
+                    loader: 'url-loader',
+                    options: {
+                      limit: 8192,
+                    },
+                  },
+                ],
+            },
         ]
     },
     plugins: [
@@ -46,7 +57,7 @@ module.exports = {
     externals: {
         // global app config object
         config: JSON.stringify({
-            apiUrl: 'http://tech.soulai'
+            apiUrl: 'http://localhost:8080'
         })
     }
 }
