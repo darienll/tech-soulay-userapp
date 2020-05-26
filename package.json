@@ -34,6 +34,7 @@
     "start": "react-scripts start",
     "start-w": "webpack-dev-server --open",
     "build": "webpack",
+    "deploy-production": "react-scripts build && scp -r ./dist/* root@178.128.203.46:/var/www/soulai.tech/html",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

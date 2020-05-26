@@ -12,24 +12,11 @@ const { forwardRef, useRef, useImperativeHandle } = React;
 class Navbar extends Component {
     constructor(props) {
         super(props);
+        console.log(this.props)
         this.state = {
-            loggedIn: this.props.loggedIn
+            loggedIn: this.props.loggedIn?.loggedIn
         }
         this.childRef = null;
-        console.log(this.props)
-    }
-
-    // componentWillMount(){
-    //     console.log(this.props.loggedIn)
-    //     console.log("there");
-    // }
-    componentDidUpdate(prevProps, prevState){
-        // this.setState({
-        //     loggedIn:this.props.loggedIn
-        // })
-        console.log(prevProps);
-        console.log(prevState)
-        return true;
     }
 
     logOut = ()=> {
@@ -42,8 +29,7 @@ class Navbar extends Component {
         this.childRef.getWrappedInstance().showDrawer();
     }
     render(){
-        // const { loggedIn } = this.props;
-        // if (loggedIn) this.setState(prevState => ({ loggedIn: prevState.loggedIn = loggedIn }))
+        const { loggedIn } = this.props;
 
         // console.log(loggedIn)
         return (
@@ -58,7 +44,7 @@ class Navbar extends Component {
                         <div className="collapse navbar-collapse"
                             id="navcol-1">
                             <ul className="nav navbar-nav">
-                                <li className="nav-item" role="presentation"><a className="nav-link" href="#">FAQ</a></li>
+                                <li className="nav-item" role="presentation"><a className="nav-link" href="/faq">FAQ</a></li>
                             </ul>
                             <form className="form-inline mr-auto" target="_self">
                                 <div className="form-group"><label htmlFor="search-field"><i className="fa fa-search"></i></label><input className="form-control search-field" type="search" id="search-field" name="search"/></div>
@@ -94,7 +80,7 @@ class Navbar extends Component {
     }
 }
 const mapStateToProps = state => {
-    // const { loggedIn } = state.authentication;
+    const { loggedIn } = state.authentication;
     return {
         loggedIn : state.authentication
     };

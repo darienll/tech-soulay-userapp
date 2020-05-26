@@ -55,6 +55,7 @@ function register(username, password) {
                 },
                 error => {
                     dispatch(failure(error));
+                    message.error('Some error occured');
                     dispatch(alertActions.error(error));
                 }
             );

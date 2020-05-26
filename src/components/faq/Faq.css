@@ -1,0 +1,11 @@
+.faq {
+    height: 93vh;
+
+}
+.faq__content {
+    width: 80%;
+    margin:0 auto;
+}
+.faq__content h5{
+    color:white;
+}
