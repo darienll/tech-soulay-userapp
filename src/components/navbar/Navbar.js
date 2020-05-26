@@ -29,7 +29,6 @@ class Navbar extends Component {
         // })
         console.log(prevProps);
         console.log(prevState)
-        
         return true;
     }
 

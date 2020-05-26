@@ -6,7 +6,7 @@ export const userService = {
     logout,
     getAll
 };
-const host = "http://localhost:8002";
+const host = "http://soulai.tech";
 
 function login(username, password) {
     const requestOptions = {

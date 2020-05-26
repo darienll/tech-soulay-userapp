@@ -13,22 +13,22 @@ export const userActions = {
 
 function login(username, password) {
     return dispatch => {
-        dispatch(request({ username }));
-        localStorage.setItem('user', JSON.stringify('test'));
-        history.push('/')
+        // dispatch(request({ username }));
+        // localStorage.setItem('user', JSON.stringify('test'));
+        // history.push('/')
         // return dispatch(success("test"));
 
-        // userService.login(username, password)
-        //     .then(
-        //         user => { 
-        //             dispatch(success(user));
-        //             history.push('/');
-        //         },
-        //         error => {
-        //             dispatch(failure(error));
-        //             dispatch(alertActions.error(error));
-        //         }
-        //     );
+        userService.login(username, password)
+            .then(
+                user => { 
+                    dispatch(success(user));
+                    history.push('/');
+                },
+                error => {
+                    dispatch(failure(error));
+                    dispatch(alertActions.error(error));
+                }
+            );
     };
 
     function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }

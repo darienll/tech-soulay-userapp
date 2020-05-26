@@ -19,7 +19,7 @@ function Products(props) {
     useEffect(()=>{
         // send request to back
         console.log(query)
-        const host = "http://localhost:8002/search/?q=" + query;
+        const host = "http://soulai.tech/search/?q=" + query;
         fetch(host)
         .then(res => res.json())
         .then(
