@@ -13,13 +13,14 @@ const { Option } = Select;
 function Products(props) {
     const [loading, setLoading] = useState(true);
     const [product, setProduct] = useState()
+    const [products, setProducts] = useState()
     const tabPosition = 'right';
     let { query } = useParams();
 
     useEffect(()=>{
         // send request to back
         console.log(query)
-        const host = "http://api.soulai.tech/search/?q=" + query;
+        const host = "http://localhost:8002/search/?q=" + query;
         fetch(host)
         .then(res => res.json())
         .then(
@@ -27,7 +28,8 @@ function Products(props) {
             // setIsLoaded(true);
             // setItems(result.items);
             console.log(result)
-            setProduct(result);
+            setProducts(result);
+            setProduct(result[0]);
             },
             // Примечание: Обрабатывать ошибки необходимо именно здесь
             // вместо блока catch(), чтобы не пропустить
@@ -60,24 +62,13 @@ function Products(props) {
                     </TabPane>
                     <TabPane tab="Graphics" key="2">
                         <div className="tab container">
-                            {  product ? <RadarExample productData = { product }/> : null }
+                            {  product ? <RadarExample productData = { products }/> : null }
                            
                         </div>
                     </TabPane>
                     <TabPane tab="Reviews" key="3">
                         <div className="tab container">
                             <Comments productData = { product } />
-                            {/* <Tabs type="card" size='small'>
-                                <TabPane tab="Positive " key="1">
-                                    <Comments/>
-                                </TabPane>
-                                <TabPane tab="Negative " key="2">
-                                    <Comments/>
-                                </TabPane>
-                                <TabPane tab="Card Tab 3" key="3">
-                                    Content of card tab 3
-                                </TabPane>
-                            </Tabs> */}
                         </div>
                     </TabPane>
                 </Tabs>
